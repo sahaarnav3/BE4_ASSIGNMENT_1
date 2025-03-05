@@ -10,6 +10,11 @@ app.use(express.json());
 
 initialiseDatabase();
 
+//Homepage
+app.get("/", (req, res) => {
+  res.send('<h1>Welcome..!</h1>')
+})
+
 //Route to create a book entry.
 app.post("/books", async (req, res) => {
   try {
