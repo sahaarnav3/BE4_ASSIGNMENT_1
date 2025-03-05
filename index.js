@@ -55,6 +55,19 @@ app.get("/books", async (req, res) => {
   }
 });
 
+//Fetch book details by title of book
+app.get("/books/:bookTitle", async (req, res) => {
+  try {
+    const bookData = await Book.findOne({ title: req.params.bookTitle });
+    if(!bookData)
+      res.status(404).json({ error: "Either the book is not present or some other error occurred. Please try again." });
+    else 
+      res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
+  } catch (error) {
+    res.status(505).json({ error: "Some error occuredd with the request while fetching book. Please try again." });
+  }
+})
+
 app.listen(PORT, () => {
   console.log("Server is Running on PORT:", PORT);
 });
