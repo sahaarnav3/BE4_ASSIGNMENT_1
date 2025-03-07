@@ -58,7 +58,8 @@ app.get("/books", async (req, res) => {
     if(!bookData)
         res.status(404).json({ error: "Either some error occured or there is no entry present in the DB." });
     else 
-        res.status(200).json({ message: "Fetched all Book data from db.", "Book-List-Data": bookData });
+        res.status(200).json({ bookData });
+        // res.status(200).json({ message: "Fetched all Book data from db.", "Book-List-Data": bookData });
   } catch (error) {
     res
       .status(500)
@@ -76,7 +77,8 @@ app.get("/books/:bookTitle", async (req, res) => {
     if(!bookData)
       res.status(404).json({ error: "Either the book is not present or some other error occurred. Please try again." });
     else 
-      res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
+      res.status(200).json({ bookData });
+      // res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
   } catch (error) {
     res.status(500).json({ error: "Some error occuredd with the request while fetching book. Please try again." });
   }
@@ -89,7 +91,8 @@ app.get("/books/author/:authorName", async (req, res) => {
     if(!bookData)
       res.status(404).json({ error: "Either the book is not present or some other error occurred. Please try again." });
     else 
-      res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
+      res.status(200).json({ bookData });
+      // res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
   } catch (error) {
     res.status(500).json({ error: "Some error occuredd with the request while fetching book. Please try again." });
   }
@@ -102,7 +105,8 @@ app.get("/books/genre/:genre", async (req, res) => {
     if(!bookData)
       res.status(404).json({ error: "Either the book is not present or some other error occurred. Please try again." });
     else 
-      res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
+      res.status(200).json({ bookData });
+      // res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
   } catch (error) {
     res.status(500).json({ error: "Some error occuredd with the request while fetching book. Please try again." });
   }
@@ -115,7 +119,8 @@ app.get("/books/year/:publishedYear", async (req, res) => {
     if(!bookData)
       res.status(404).json({ error: "Either the book is not present or some other error occurred. Please try again." });
     else 
-      res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
+      res.status(200).json({ bookData });
+      // res.status(200).json({ message: "Book fetched successfully from the DB.", "Book-Data": bookData });
   } catch (error) {
     res.status(500).json({ error: "Some error occuredd with the request while fetching book. Please try again." });
   }
